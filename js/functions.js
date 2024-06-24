@@ -6,7 +6,7 @@ if (mystr.length <= 20) {
   console.log('строка короче 20 символов');
 } else {
   console.log('строка длиннее 20 символов');
-};
+}
 
 
 const myStr = 'Втораястрокатекста';
@@ -17,7 +17,7 @@ if (myStr != 18) {
   console.log('Строка ровно 18 символов');
 } else {
   console.log('Строка меньше или больше 18 символов');
-};
+}
 
 
 const myString = 'Третья строка текста';
@@ -28,7 +28,7 @@ if (myString <= 10) {
   console.log('Строка длиннее 10 символов');
 } else {
   console.log('Строка короче 10 символов');
-};
+}
 
 const checkPalindrome = (string) => {
   const normalString = string.replaceAll(' ', '').toLowerCase();
