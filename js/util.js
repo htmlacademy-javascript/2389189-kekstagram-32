@@ -5,11 +5,9 @@
 //     return false;
 //   }
 // }
-
 // console.log(fn('моя первая строка', 20));
 // console.log(fn('втораястрокатекста', 18));
 // console.log(fn('Третья строка текста', 10));
-
 // const checkPalindrome = (string) => {
 //   const normalString = string.replaceAll(' ', '').toLowerCase();
 //   let reversedString = '';
@@ -17,37 +15,30 @@
 //     reversedString += normalString[i];
 //   }
 //   return normalString === reversedString;
-// };
-
+// }
 // console.log(checkPalindrome('noon'));
 // console.log(checkPalindrome('ДовОд'));
 // console.log(checkPalindrome('Кекс'));
 // console.log(checkPalindrome('Лёша на полке клопа нашёл '));
-// let end = 17;
-// let arr = 14;
-// let itog = (end - arr) * 60;
-// if (itog != 90) {
-// console.log(true);
-// } else {
-//   console.log(false);
-// };
-// let firstDate = '14:00';
-// let secondDate = '17:30';
 
-// let getDate = (string) => new Date(0, 0,0, string.split(':')[0], string.split(':')[1]); //получение даты из строки (подставляются часы и минуты
+const getRandomInteger = (a, b) => {
 
-// function fn(hour, minutes) {
-//   if (hour * 60 >= minutes) {
-//     return true;
-//   } else {
-//     return false;
-//   }
-// }
+  const lower = Math.ceil(Math.min(a, b));
+  const upper = Math.floor(Math.max(a, b));
+  const result = Math.random() * (upper - lower + 1) + lower;
+  return Math.floor(result);
+};
 
-// console.log(fn(3.5, 90));
-// console.log(fn(2, 120));
-// console.log(fn(0.5, 90));
-// console.log(fn (-6, 90));
-// console.log(fn(9.5, 900));
+const getRandomIntegerUnigueID = (a = 0,b = 1000)=>{
+  const IntegerUnigueID = [];
+  return function (){
+    let randomId = 0;
+    do {
+      randomId = getRandomInteger(a,b);
+    } while (IntegerUnigueID.includes(randomId));
+    IntegerUnigueID.push(randomId);
+    return randomId;
+  };
+};
 
-
+export {getRandomInteger, getRandomIntegerUnigueID};
