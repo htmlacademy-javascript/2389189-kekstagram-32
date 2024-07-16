@@ -1,4 +1,4 @@
-import {getRandomInteger} from './util.js';
+import { getRandomInteger } from './util.js';
 
 const message = [
   'Всё отлично!',
@@ -21,12 +21,12 @@ const name = [
 ];
 const keksId = [25];
 
-const getRandomIntegerUnigueID = (a = 0,b = 1000)=>{
+const getRandomIntegerUnigueID = (a = 1, b = 1000) => {
   const IntegerUnigueID = [];
-  return function (){
-    let randomId = 0;
+  return function () {
+    let randomId = 1;
     do {
-      randomId = getRandomInteger(a,b);
+      randomId = getRandomInteger(a, b);
     } while (IntegerUnigueID.includes(randomId));
     IntegerUnigueID.push(randomId);
     return randomId;
@@ -34,24 +34,24 @@ const getRandomIntegerUnigueID = (a = 0,b = 1000)=>{
 };
 
 const idPhoto = getRandomIntegerUnigueID();
-const idImg = getRandomIntegerUnigueID(0, 25);
+const idImg = getRandomIntegerUnigueID(1, 25);
 const idcommrnts = getRandomIntegerUnigueID();
 
-const getRandomArrayElement = (elements) => elements[getRandomInteger(0, elements.length - 1)]
+const getRandomArrayElement = (elements) => elements[getRandomInteger(0, elements.length - 1)];
 
-const createcomments = () =>({
-  likes: getRandomInteger(15,200),
+const createcomments = () => ({
+  likes: getRandomInteger(0, 200),
   id: idcommrnts(),
   descriptions: getRandomArrayElement(name),
 });
 
-const createObject = () => ({
+const createKeksObject = () => ({
   id: idPhoto(),
-  url: `photos/${idImg()}.png`,
-  likes: getRandomInteger(15,200),
+  url: `photos/${idImg()}.jpg`,
+  likes: getRandomInteger(15, 200),
   descriptions: getRandomArrayElement(message),
-  comments: Array.from({ length: 30 }, createcomments),
+  comments: Array.from({ length: getRandomInteger(0, 30) }, createcomments),
 });
-export const createObjects = Array.from({ length: keksId }, createObject);
+const createObject = Array.from({ length: keksId }, createKeksObject);
 
-
+export { createObject };

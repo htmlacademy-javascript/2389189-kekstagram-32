@@ -1,4 +1,4 @@
-import {createObjects} from './data.js';
+import {createObject} from './data.js';
+import './rendering-picture.js';
 
-console.log(createObjects);
-
+console.log(createObject);
